@@ -57,14 +57,14 @@ document.addEventListener("keydown", (event) => {
     }
 
     videos.forEach((video) => {
-      if (!isNaN(video.duration) && video.duration > 0) {
+      if (!isNaN(video.duration) && video.duration > 0 && !video.paused) {
         video.currentTime = video.duration;
         isSkiped = true;
       }
     });
 
     if (isSkiped) {
-      showToast(`Video Skipped)`);
+      showToast(`Video Skipped`);
     } else {
       showToast("Error: Duration unavailable", true);
     }
